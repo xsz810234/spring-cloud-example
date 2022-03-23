@@ -25,7 +25,6 @@ public class PaymentController {
 
   @GetMapping("/payment/get/{id}")
   public CommonResult queryById(@PathVariable("id") Long id) {
-    log.info("heihei");
     Payment payment = paymentService.queryById(id);
     log.info("***************查询成功*********" + payment);
     if (payment != null) {
