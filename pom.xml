@@ -26,13 +26,16 @@
         <log4j.vsrsion>1.2.17</log4j.vsrsion>
     </properties>
 
-<!--    <distributionManagement>-->
-<!--            <repository>-->
-<!--                <id>central</id>-->
-<!--                <url>http://mvnrepo.alibaba-inc.com/mvn/repository</url>-->
-
-<!--            </repository>-->
-<!--    </distributionManagement>-->
+    <distributionManagement>
+        <repository>
+            <id>releases</id>
+            <url>http://mvnrepo.alibaba-inc.com/mvn/releases</url>
+        </repository>
+        <snapshotRepository>
+            <id>snapshots</id>
+            <url>http://mvnrepo.alibaba-inc.com/mvn/snapshots</url>
+        </snapshotRepository>
+    </distributionManagement>
 
     <!--  因为是总项目 所以用dependencyManagement来管理  因为其他的子项目就不会来管理版本了了 可以直接引用 -->
     <dependencyManagement>

@@ -16,6 +16,8 @@ mybatis:
   type-aliases-package: pojo    # 所有pojo别名类所在包
 #eureka配置
 eureka:
+  instance:
+    prefer-ip-address: true
   client:
     #表示是否将自己注册进eureka  默认为true
     register-with-eureka: true
@@ -23,4 +25,4 @@ eureka:
     fetch-registry: true
     service-url:
       #单机配置
-      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://localhost:7001/eureka,http://11.164.94.177:7001/eureka
