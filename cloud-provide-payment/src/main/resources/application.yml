@@ -1,5 +1,5 @@
 server:
-  port: 8801 #服务端口
+  port: ${self_port} #服务端口
 #spring相关配置
 spring:
   application:
@@ -26,4 +26,4 @@ eureka:
     service-url:
       #单机配置
       #defaultZone: http://11.164.94.179:7001/eureka,http://11.164.94.177:7001/eureka
-      defaultZone: http://localhost:7001/eureka
+      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
