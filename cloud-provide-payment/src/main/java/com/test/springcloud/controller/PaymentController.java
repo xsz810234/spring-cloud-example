@@ -7,6 +7,8 @@ import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.*;
 
+import java.util.concurrent.TimeUnit;
+
 @RestController
 @Slf4j
 public class PaymentController {
@@ -32,5 +34,11 @@ public class PaymentController {
     } else {
       return new CommonResult(444, "查询失败", null);
     }
+  }
+
+  @GetMapping("/payment/simulation/timeout")
+  public CommonResult testTimeout() throws InterruptedException {
+    TimeUnit.SECONDS.sleep(3);
+    return queryById(1l);
   }
 }
