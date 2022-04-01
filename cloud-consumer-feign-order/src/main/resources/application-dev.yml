@@ -10,7 +10,7 @@ eureka:
     register-with-eureka: false
     fetch-registry: true
     service-url:
-      defaultZone: http://localhost:7001/eureka,http://localhost:7002/eureka
+      defaultZone: http://localhost:7001/eureka
 
 logging:
   level:
@@ -21,3 +21,29 @@ ribbon:
 feign:
   httpclient:
     enabled: true
+  hystrix:
+    enabled: true
+hystrix:
+  threadpool:
+    default:
+      coreSize: 100
+      maximumSize: 200
+      maxQueueSize: 300
+      allowMaximumSizeToDivergeFromCoreSize: true
+      queueSizeRejectionThreshold: 235
+  command:
+    default:
+      execution:
+        isolation:
+          thread:
+            timeoutInMilliseconds: 10000
+        timeout:
+          enabled: true
+      circuitBreaker:
+        enabled: true
+        requestVolumeThreshold: 100
+      fallback:
+        isolation:
+          semaphore:
+            maxConcurrentRequests: 50
+
